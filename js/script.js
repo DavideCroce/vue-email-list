@@ -12,16 +12,15 @@ const rndEmails = new Vue ({
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
             then(res => {
                 this.emails.push(res.data.response);
-            })
+            });
         },
         rEmails(numb){
             for (i = 0; i < numb; i++){
-                const mail = this.rEmail();
-                this.emails.push(mail)
-            }
+                this.rEmail();
+            };
         },
-        numbEmails(){
-            this.rEmails(10);
-        }
-    }
+    },
+    mounted(){
+        this.rEmails(10);
+    },
 })
